@@ -1,0 +1,930 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<title>Business Pro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Business Pro">
+<meta property="og:title" content="Business Pro | بث مباشر لعرض فكرة حول مجال عملنا">
+<meta property="og:description" content="التجارة الإلكترونية والبيع المباشر: ابدأ مشروعك الخاص دون خبرة سابقة، مع تكوين ومرافقة من فريقنا.">
+<meta property="og:image" content="https://businesspro20.github.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://businesspro20.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Business Pro: ابدأ مشروعك في التجارة الإلكترونية والبيع المباشر دون خبرة سابقة، مع تكوين ومرافقة، عبر الإنترنت أو في مكاتبنا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&family=Quicksand:wght@500;600&display=swap">
+<style>
+/* Layout: RTL bands — light hero with the logo, scheduled live premiere on navy, team, video testimonials, contact */
+/* Palette taken from the logo: teal #078174 → indigo-navy #0b073a */
+:root {
+  --bg: #f3f6f7;
+  --surface: #ffffff;
+  --ink: #14123a;
+  --muted: #5c6079;
+  --line: #dce2ea;
+  --brand: #0b073a;        /* logo navy ("PRO") */
+  --brand-ink: #f2f4fb;
+  --accent: #078174;       /* logo teal ("BUSINESS") */
+  --accent-soft: #19a08d;
+  --on-accent: #ffffff;
+  --plate: #ffffff;        /* the logo always sits on white */
+  --live: #d6312b;         /* semantic: on air */
+  --stage: #0b073a;
+  --font-display: "Cairo", Tahoma, "Segoe UI", sans-serif;
+  --font-body: "Cairo", Tahoma, "Segoe UI", sans-serif;
+  --font-latin: "Quicksand", "Segoe UI", sans-serif;
+  --radius: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #07051f; --surface: #110e35; --ink: #e8ebf6; --muted: #a3a8c4; --line: #26225a;
+    --brand: #0b073a; --brand-ink: #e8ebf6; --accent: #1fae99; --accent-soft: #3cc7b0; --on-accent: #04121a;
+    --live: #ef4a43; --stage: #050318;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #07051f; --surface: #110e35; --ink: #e8ebf6; --muted: #a3a8c4; --line: #26225a;
+  --brand: #0b073a; --brand-ink: #e8ebf6; --accent: #1fae99; --accent-soft: #3cc7b0; --on-accent: #04121a;
+  --live: #ef4a43; --stage: #050318;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before { animation: none !important; transition: none !important; } }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 1rem; line-height: 1.75; direction: rtl; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 800; line-height: 1.35; text-wrap: balance; margin: 0; }
+h3 { font-weight: 700; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.wrap { max-width: 1120px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: 72px; }
+.eyebrow { font-size: .85rem; font-weight: 700; color: var(--accent); letter-spacing: .02em; }
+.section-head { display: grid; gap: 8px; margin-bottom: 32px; max-width: 62ch; }
+.section-head h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); }
+.section-head p { color: var(--muted); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 700 1rem var(--font-body); padding: 12px 22px; border-radius: 8px; border: 0; cursor: pointer; background: var(--accent); color: var(--on-accent); text-decoration: none; transition: transform .15s, filter .15s; }
+.btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: inherit; box-shadow: inset 0 0 0 1.5px currentColor; }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); color: var(--ink); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); direction: ltr; font-family: var(--font-latin); font-weight: 500; font-size: 1.2rem; letter-spacing: .06em; }
+.brand img { width: 42px; height: 42px; object-fit: contain; background: var(--plate); border-radius: 10px; padding: 3px; }
+.brand .w1 { color: var(--accent); }
+.top nav { display: flex; gap: 22px; font-size: .95rem; align-items: center; }
+.top nav a { color: inherit; text-decoration: none; opacity: .85; }
+.top nav a:hover { opacity: 1; }
+.nav-live { display: inline-flex; align-items: center; gap: 6px; }
+.nav-live[hidden] { display: none !important; }
+@media (max-width: 760px) { .top nav a:not(.nav-live) { display: none; } }
+
+/* Hero */
+.hero { background: var(--bg); color: var(--ink); position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 6px; background: linear-gradient(to left, var(--accent), var(--brand)); }
+.hero .wrap { display: grid; gap: 40px; padding-block: 28px 72px; }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero h1 { font-size: clamp(2rem, 5.2vw, 3.4rem); max-width: 18ch; }
+.hero h1 span { color: var(--accent); }
+.hero p { font-size: 1.12rem; color: var(--muted); max-width: 52ch; }
+/* Banner: the team photo fills the whole banner; the logo sits on a light white wash at the left that fades into the photo */
+.banner { --solid: 30%; --clear: 58%; position: relative; aspect-ratio: 2.85 / 1; max-width: 100%; border-radius: 20px; overflow: hidden; background: var(--plate); box-shadow: 0 18px 50px rgba(11,7,58,.14); direction: ltr; }
+/* framed on the group: the bottom edge sits on the front row's feet, the back row's heads stay whole;
+   the photo starts a little in from the left and fades in under the logo */
+.banner-photo { position: absolute; top: 0; bottom: 0; right: 0; width: 92%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14%); mask-image: linear-gradient(to right, transparent 0, #000 14%); }
+.banner-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block; }
+.banner-photo::after { /* brand tint: navy at the bottom-right */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(200deg, transparent 50%, rgba(11,7,58,.4) 100%); }
+.banner-fade { /* white behind the logo, dissolving smoothly toward the photo */
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 34% 80% at 19% 50%, rgba(255,255,255,.42) 0%, rgba(255,255,255,.22) 55%, rgba(255,255,255,0) 100%),
+    linear-gradient(to right,
+      rgba(255,255,255,.5) 0%, rgba(255,255,255,.5) var(--solid),
+      rgba(255,255,255,.38) calc(var(--solid) + (var(--clear) - var(--solid)) * .3),
+      rgba(255,255,255,.2) calc(var(--solid) + (var(--clear) - var(--solid)) * .6),
+      rgba(255,255,255,.06) calc(var(--solid) + (var(--clear) - var(--solid)) * .85),
+      rgba(255,255,255,0) var(--clear)); }
+/* a soft white halo keeps the logo crisp on top of the busier, less-washed photo */
+/* the tip of the eagle's upper wing touches the banner's top edge */
+.banner-logo { position: absolute; left: 3.5%; top: -1.5%; height: 97%; z-index: 1;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,.95)) drop-shadow(0 0 10px rgba(255,255,255,.85)) drop-shadow(0 0 24px rgba(255,255,255,.6)); }
+.banner-logo img { height: 100%; width: auto; display: block; }
+.banner::after { content: ""; position: absolute; inset: auto 0 0 0; height: 6px; background: linear-gradient(to right, var(--brand), #078174); z-index: 2; }
+@media (max-width: 640px) {
+  .banner { aspect-ratio: 16 / 10; --solid: 46%; --clear: 80%; }
+  .banner-logo { height: 62%; left: 3%; top: 50%; transform: translateY(-50%); }
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; list-style: none; padding: 0; margin: 8px 0 0; font-size: .95rem; }
+.facts li::before { content: "◆ "; color: var(--accent); font-size: .7rem; }
+
+/* Live premiere */
+.live-band { background: var(--stage); color: #eef3f0; scroll-margin-top: 60px; }
+.live-band .section-head p { color: inherit; opacity: .7; }
+.live-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: start; }
+@media (max-width: 900px) { .live-grid { grid-template-columns: 1fr; } }
+.player { position: relative; aspect-ratio: 16 / 9; max-width: 100%; background: #000; border-radius: var(--radius); overflow: hidden; box-shadow: 0 0 0 1px rgba(255,255,255,.08); }
+.player video { width: 100%; height: 100%; display: block; object-fit: contain; background: #000; cursor: pointer; }
+.fb-box { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; background: #000; }
+.fb-box > div, .fb-slot > div { width: 100%; }
+.fb-box .fb-video { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); transform-origin: center center; }
+.is-fb .player-bar { inset: 14px auto auto 14px; background: none; padding: 0; flex-direction: column; align-items: flex-start; }
+.is-fb .pbtn { background: rgba(0,0,0,.65); }
+.is-fb .pbtn:hover { background: rgba(0,0,0,.8); }
+/* during the live, a clear layer sits over the Facebook player so nobody can skip, rewind or change the speed */
+.fb-shield { position: absolute; inset: 0; z-index: 1; cursor: pointer; background: transparent; }
+/* before the viewer's first tap: the Facebook player stays reachable and this note points to its ▶ */
+/* covers Facebook's own control bar (timeline and length) for the whole live: nobody sees how long it is or can scrub */
+.fb-band { position: absolute; left: 0; right: 0; bottom: 0; height: var(--fbbar, 28px); z-index: 2; background: #000; }
+.fb-hint { position: absolute; left: 50%; top: 62px; transform: translateX(-50%); z-index: 2; pointer-events: none; max-width: calc(100% - 32px);
+  padding: 8px 16px; border-radius: 999px; background: var(--live); color: #fff; font-weight: 700; font-size: .92rem; text-align: center; animation: pulse 1.6s infinite; }
+.testi .frame.fb { aspect-ratio: auto; min-height: 220px; display: grid; place-items: center; }
+.testi .frame.ig { aspect-ratio: auto; min-height: 420px; background: var(--surface); border: 1px solid var(--line); }
+.testi .frame.ig .instagram-media, .testi .frame.ig iframe { margin: 0 !important; min-width: 0 !important; width: 100% !important; max-width: 100% !important; border: 0 !important; box-shadow: none !important; }
+.testi .frame.ig blockquote a { display: grid; place-items: center; min-height: 420px; color: var(--accent); font-weight: 700; }
+[hidden] { display: none !important; }
+.badge { position: absolute; top: 14px; right: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 7px; padding: 4px 12px; border-radius: 6px; font-weight: 700; font-size: .85rem; background: rgba(0,0,0,.6); color: #fff; }
+.badge.on { background: var(--live); }
+.badge.on::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulse 1.4s infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
+.viewers { position: absolute; top: 14px; right: 100px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; background: rgba(0,0,0,.6); color: #fff; font-size: .85rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.viewers svg { width: 16px; height: 16px; flex: none; }
+.overlay { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; text-align: center; padding: 24px; background: radial-gradient(circle at 50% 40%, rgba(7,129,116,.55), rgba(11,7,58,.92)); }
+.overlay[hidden] { display: none !important; }
+.overlay-inner { display: grid; gap: 14px; justify-items: center; max-width: 34ch; }
+.overlay h3 { font-size: clamp(1.1rem, 2.6vw, 1.5rem); }
+.overlay p { opacity: .8; font-size: .95rem; }
+.countdown { display: flex; gap: 10px; direction: ltr; }
+.countdown div { min-width: 64px; padding: 8px 6px; border-radius: 8px; background: rgba(255,255,255,.08); display: grid; }
+.countdown b { font-family: var(--font-display); font-size: clamp(1.4rem, 4vw, 2.1rem); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.countdown small { font-size: .72rem; opacity: .7; direction: rtl; }
+.player-bar { position: absolute; inset: auto 0 0 0; z-index: 2; display: flex; gap: 8px; justify-content: flex-start; padding: 10px; background: linear-gradient(transparent, rgba(0,0,0,.7)); }
+.player-bar[hidden] { display: none !important; }
+.pbtn { font: 700 .85rem var(--font-body); padding: 6px 12px; border-radius: 6px; border: 0; background: rgba(255,255,255,.16); color: #fff; cursor: pointer; }
+.pbtn:hover { background: rgba(255,255,255,.28); }
+.live-meta { display: grid; gap: 18px; min-width: 0; }
+.live-meta h3 { font-size: 1.4rem; }
+.live-meta .when { font-size: .95rem; opacity: .75; }
+.live-meta .desc { opacity: .85; }
+.schedule { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.schedule li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 14px; border-radius: 8px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); }
+.schedule li.current { border-color: var(--live); }
+.schedule .t { font-weight: 700; }
+.schedule .d { font-size: .85rem; opacity: .7; grid-column: 1; }
+.schedule .s { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-size: .78rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: rgba(255,255,255,.1); }
+.schedule .s.on { background: var(--live); color: #fff; }
+.schedule-title { font-size: .85rem; font-weight: 700; color: var(--accent); }
+.live-band .schedule-title { color: var(--accent-soft); }
+.remind { display: grid; gap: 10px; padding: 16px; border-radius: 10px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); }
+.remind p { opacity: .8; font-size: .92rem; }
+.remind-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.remind-btns .btn { padding: 8px 14px; font-size: .9rem; }
+
+/* What we offer */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: grid; gap: 10px; align-content: start; }
+.card-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #078174, #0b073a); color: #fff; display: grid; place-items: center; }
+.card-icon svg { width: 24px; height: 24px; }
+.card h3 { font-size: 1.15rem; }
+.card p, .card ul { color: var(--muted); font-size: .95rem; margin: 0; }
+.card ul { padding-inline-start: 18px; }
+.values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+@media (max-width: 760px) { .values { grid-template-columns: 1fr; } }
+.value { border-top: 3px solid var(--accent); padding-top: 14px; display: grid; gap: 6px; }
+.value h3 { font-size: 1.1rem; }
+.value p { color: var(--muted); font-size: .95rem; }
+
+/* Testimonials */
+.testi-band { background: var(--surface); border-block: 1px solid var(--line); }
+.testis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 900px) { .testis { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .testis { grid-template-columns: 1fr; } }
+.testi { display: grid; gap: 10px; align-content: start; }
+.testi .frame { position: relative; aspect-ratio: 9 / 16; max-width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--stage); }
+.testi video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.empty { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 20px; color: #cfdcd5; font-size: .9rem; background: repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 12px, transparent 12px 24px), var(--stage); }
+.empty code { direction: ltr; display: inline-block; font-size: .8rem; opacity: .8; margin-top: 6px; }
+.testi h3 { font-size: 1.05rem; }
+.testi p { color: var(--muted); font-size: .92rem; }
+
+/* Contact */
+.contact { background: linear-gradient(160deg, var(--brand) 55%, #064f52); color: var(--brand-ink); }
+.contact .eyebrow, .live-band .eyebrow { color: var(--accent-soft); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+@media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact .section-head p { color: inherit; opacity: .8; }
+.cline { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.cline .k { font-size: .85rem; opacity: .7; min-width: 70px; }
+.cline .v { font-weight: 700; direction: ltr; user-select: all; }
+.cline a.ig { display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; user-select: auto; }
+.cline a.ig:hover { text-decoration: underline; }
+.cline a.ig svg { width: 22px; height: 22px; flex: none; }
+.copy { font: 500 .8rem var(--font-body); padding: 4px 10px; border-radius: 6px; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; opacity: .8; }
+.form { background: var(--surface); color: var(--ink); border-radius: 14px; padding: 24px; display: grid; gap: 14px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: .88rem; font-weight: 700; color: var(--muted); }
+input, textarea { font: inherit; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+textarea { min-height: 96px; resize: vertical; }
+.form-msg { font-size: .9rem; font-weight: 700; color: var(--brand); }
+footer.bottom { background: var(--brand); color: var(--brand-ink); border-top: 1px solid rgba(255,255,255,.12); }
+footer.bottom .wrap { padding-block: 20px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: .85rem; opacity: .7; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Business Pro"><img src="assets/logo-mark.png" alt=""><span><span class="w1">BUSINESS</span> PRO</span></a>
+    <nav aria-label="القائمة">
+      <a href="#about">من نحن</a>
+      <a href="#offer">ماذا نقدم</a>
+      <a href="#testimonials">الشهادات</a>
+      <a href="#live" class="nav-live" id="nav-live" hidden><span class="badge on" style="position:static">مباشر</span></a>
+      <a href="#live">البث</a>
+    </nav>
+    <a class="btn" href="#contact" style="padding:8px 16px;font-size:.9rem">تواصل معنا</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="about">
+    <div class="wrap">
+      <div class="banner">
+        <div class="banner-photo"><img src="assets/team.jpg" alt="فريق Business Pro" width="1280" height="854"></div>
+        <div class="banner-fade" aria-hidden="true"></div>
+        <div class="banner-logo"><img src="assets/logo.png" alt="Business Pro" width="1250" height="985"></div>
+      </div>
+      <div class="hero-copy">
+      <span class="eyebrow">التجارة الإلكترونية والبيع المباشر</span>
+      <h1>ابدأ مشروعك الخاص <span>دون خبرة سابقة</span></h1>
+      <p>في Business Pro نعلّمك كيف تبدأ مشروعًا بسيطًا في التجارة الإلكترونية والبيع المباشر. يمكنك العمل عليه في وقت فراغك أو كعمل رئيسي، عبر الإنترنت أو من مكاتبنا المنتشرة في العديد من المدن المغربية.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact">أريد أن أبدأ</a>
+        <a class="btn ghost" href="#testimonials">استمع إلى التجارب</a>
+      </div>
+      <ul class="facts">
+        <li>لا تحتاج إلى خبرة أو شهادة</li>
+        <li>تكوين ومرافقة من فريقنا</li>
+        <li>عبر الإنترنت أو في مكاتبنا</li>
+      </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band live-band" id="live">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">البث المباشر</span>
+        <h2>سنقدّم حصة شرح مباشرة في الوقت المحدد هنا</h2>
+        <p>الهدف من هذه الحصة هو شرح مجال عملنا بطريقة بسيطة، وإعطاء الحلول لجميع الصعوبات، والإجابة عن جميع الأسئلة.</p>
+      </div>
+      <div class="live-grid">
+        <div class="player" id="player">
+          <span class="badge" id="live-badge">قريبًا</span>
+          <span class="viewers" id="viewers" hidden></span>
+          <video id="live-video" playsinline webkit-playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" x-webkit-airplay="deny"></video>
+          <div class="fb-box" id="live-fb" hidden></div>
+          <div class="fb-shield" id="fb-shield" hidden title="اضغط لتشغيل الصوت"></div>
+          <div class="fb-hint" id="fb-hint" hidden>اضغط على ▶ لمشاهدة البث المباشر بالصوت</div>
+          <div class="fb-band" id="fb-band" hidden></div>
+          <div class="overlay" id="overlay">
+            <div class="overlay-inner" id="overlay-inner"></div>
+          </div>
+          <div class="player-bar" id="player-bar" hidden>
+            <button type="button" class="pbtn" id="btn-sound">تشغيل الصوت</button>
+          </div>
+        </div>
+        <div class="live-meta">
+          <div style="display:grid;gap:6px">
+            <h3 id="live-title">—</h3>
+            <div class="when" id="live-when"></div>
+          </div>
+          <p class="desc" id="live-desc"></p>
+          <div class="remind" id="remind" hidden>
+            <span class="schedule-title">ذكّرني بالبث</span>
+            <p>أضف البث إلى تقويم هاتفك، وسيصلك تنبيه قبل بدايته بـ 15 دقيقة.</p>
+            <div class="remind-btns">
+              <a class="btn" id="remind-google" target="_blank" rel="noopener">تقويم Google</a>
+              <a class="btn ghost" id="remind-ics" download="business-pro-live.ics">iPhone / تقويم آخر</a>
+            </div>
+          </div>
+          <div style="display:grid;gap:10px">
+            <span class="schedule-title">البرنامج</span>
+            <ul class="schedule" id="schedule"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="offer">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">ماذا نقدم</span>
+        <h2>كل ما تحتاجه لإنجاح مشروعك</h2>
+        <p>منذ اليوم الأول، تجد بجانبك فريقًا يؤطرك ويعلّمك ويقدّم لك جميع التكوينات التي ستحتاجها.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6"/><circle cx="9" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg></div>
+          <h3>التجارة الإلكترونية والبيع المباشر</h3>
+          <p>مشروع بسيط يمكنك أن تبدأه دون رأس مال كبير، وأن تطوّره خطوة بخطوة.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l15-6v14L3 13z"/><path d="M7 13v5a2 2 0 0 0 4 0v-3.5"/></svg></div>
+          <h3>دورات تدريبية</h3>
+          <ul><li>الإشهار والتواصل</li><li>الإعلانات الممولة</li><li>البيع عبر الإنترنت</li></ul>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3 3 0 0 1 0 6M21 20c0-2.6-1.6-4.8-4-5.6"/></svg></div>
+          <h3>التأطير والمرافقة</h3>
+          <p>فريق يتابعك ويجيب عن أسئلتك حتى تصبح قادرًا على الاعتماد على نفسك.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+          <h3>عبر الإنترنت أو في المكاتب</h3>
+          <p>اعمل من منزلك، أو التقِ بنا في مكاتبنا المنتشرة في العديد من المدن المغربية.</p>
+        </article>
+      </div>
+      <div class="values">
+        <div class="value"><h3>دون خبرة أو شهادات</h3><p>لا نطلب منك أي خبرة سابقة أو شهادة دراسية، فنحن من نعلّمك كل شيء.</p></div>
+        <div class="value"><h3>حسب وقتك</h3><p>اعمل في وقت فراغك أو اجعله عملك الرئيسي، حسب حاجتك.</p></div>
+        <div class="value"><h3>لست وحدك</h3><p>فريقنا معك في كل خطوة، من التكوين الأول إلى أول عملية بيع وما بعدها.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band testi-band" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">الشهادات</span>
+        <h2>تجارب من بدأوا معنا</h2>
+        <p>أشخاص بدأوا دون خبرة سابقة، وهذا ما قالوه عن المشروع والتكوين.</p>
+      </div>
+      <div class="testis" id="testi-grid"></div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="section-head">
+          <span class="eyebrow">تواصل معنا</span>
+          <h2>هل تريد أن تبدأ معنا؟</h2>
+          <p>أرسل لنا اسمك وما تبحث عنه، وسنجيبك عبر واتساب.</p>
+        </div>
+        <div class="cline"><span class="k">واتساب</span><span class="v" id="phone-text"></span><button type="button" class="copy" data-copy="phone-text">نسخ</button></div>
+        <div class="cline"><span class="k">البريد الإلكتروني</span><span class="v" id="mail-text"></span><button type="button" class="copy" data-copy="mail-text">نسخ</button></div>
+        <div class="cline"><span class="k">إنستغرام</span><a class="v ig" id="ig-page" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>@bsp_academy</a></div>
+        <div class="cline"><span class="k"></span><a class="v ig" id="ig-personal" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>@abdedaim_louaar</a></div>
+        <div class="hero-actions" style="margin-top:8px"><a class="btn" id="wa-direct" target="_blank" rel="noopener">تواصل معنا عبر واتساب</a></div>
+      </div>
+      <form class="form" id="contact-form">
+        <div class="field"><label for="c-name">الاسم</label><input id="c-name" required></div>
+        <div class="field"><label for="c-city">المدينة</label><input id="c-city" required></div>
+        <div class="field"><label for="c-phone">رقم الهاتف (للمكالمات)</label><input id="c-phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right" pattern="[0-9+ ]{9,16}" placeholder="06 00 00 00 00" required></div>
+        <button class="btn" type="submit">إرسال رسالة عبر واتساب</button>
+        <p class="form-msg" id="form-msg" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="bottom">
+  <div class="wrap">
+    <span>© 2026 Business Pro</span>
+    <span style="display:flex;gap:16px;flex-wrap:wrap"><a data-ig="instagramPage" target="_blank" rel="noopener" style="color:inherit">Instagram · @bsp_academy</a><a data-ig="instagramPersonal" target="_blank" rel="noopener" style="color:inherit">@abdedaim_louaar</a></span>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   الإعدادات — عدّل معلوماتك هنا
+   - ضع الفيديوهات في مجلد "videos" بجانب هذا الملف،
+     أو ضع في src رابط فيديو من فيسبوك (يجب أن يكون الفيديو عامًا Public)
+   - start: موعد البث، مع فارق التوقيت في آخره (+00:00 أو +01:00 حسب الساعة الحالية في المغرب)
+   - durationMin: تُحسب تلقائيًا من الفيديو، وهذه القيمة احتياطية فقط
+   - replay: true = بعد انتهاء البث يمكن للزوار مشاهدة التسجيل
+   ===================================================================== */
+const CONFIG = {
+  whatsapp: "212617174717",
+  phone: "06 17 17 47 17",
+  email: "abdedaimlouaar@gmail.com",
+  instagramPage: "https://www.instagram.com/bsp_academy/",
+  instagramPersonal: "https://www.instagram.com/abdedaim_louaar/",
+  // فارق توقيت المغرب عن UTC (بالساعات) لعرض مواعيد البث بنفس الساعة للجميع
+  utcOffset: 0,
+  // عدّاد المشاهدين: إعدادات مشروع Firebase (Realtime Database). اتركها null لإخفاء العداد
+  firebase: {
+    apiKey: "AIzaSyBvabOk7fjHie10WggsnDSyUkh0onC-Un8",
+    authDomain: "business-pro-live.firebaseapp.com",
+    databaseURL: "https://business-pro-live-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "business-pro-live",
+    appId: "1:179988209274:web:726a5eb4e64f3ca6f625c3"
+  },
+  lives: [
+    // بث أسبوعي: يتكرر تلقائيًا كل جمعة على 20:00 (أيام بالإنجليزية: friday, saturday, sunday...)
+    { title: "حصة مباشرة: فكرة مشروع في التجارة الإلكترونية", description: "تابع الشرح كاملًا لتتعرف على فكرة المشروع وكيف يمكنك البدء معنا، ودوّن جميع المعلومات.", src: "videos/live.mp4", repeat: { days: ["friday"], time: "20:00" }, durationMin: 43.6, replay: false }
+  ],
+  // أضف أو احذف سطرًا لكل فيديو. الحقلان name و detail اختياريان (اتركهما "" إن لم تحتج إليهما)
+  // src: رابط Reel من إنستغرام، أو رابط فيديو من فيسبوك، أو ملف في مجلد videos
+  testimonials: [
+    { name: "", detail: "", src: "https://www.instagram.com/reel/DW4iORDimGa/" },
+    { name: "", detail: "", src: "https://www.instagram.com/reel/DWh7rpAiDO1/" },
+    { name: "", detail: "", src: "https://www.instagram.com/reel/DW6rbkHip64/" },
+    { name: "", detail: "", src: "https://www.instagram.com/reel/DW_Mr6LCmkq/" },
+    { name: "", detail: "", src: "https://www.instagram.com/reel/DW9q_uoiob1/" },
+    { name: "", detail: "", src: "https://www.instagram.com/reel/DW_KEt9Cmx-/" }
+  ]
+};
+/* ===================================================================== */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const waLink = text => "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text);
+// shown in each viewer's own clock time
+// always Moroccan wall-clock time, whatever timezone the viewer's phone is set to
+const fmtDate = d => new Date(d.getTime() + CONFIG.utcOffset * 3600e3).toLocaleString("ar-MA", { timeZone: "UTC", weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit", numberingSystem: "latn" });
+// phones can be set an hour off; take the time from the server so everyone shares the same live second
+let clockSkew = 0;
+const now = () => Date.now() + clockSkew;
+fetch("/?clock=" + Date.now(), { method: "HEAD", cache: "no-store" }).then(r => {
+  const server = Date.parse(r.headers.get("Date") || "");
+  if (!server) return;
+  clockSkew = server + 500 - Date.now();
+  if (typeof tick === "function") tick(true);
+}).catch(() => {});
+
+// ---------- Facebook videos ----------
+const isFB = src => /facebook\.com|fb\.watch/i.test(src || "");
+let fbReady = null, fbSeq = 0;
+function loadFB() {
+  if (!fbReady) fbReady = new Promise((resolve, reject) => {
+    window.fbAsyncInit = () => { FB.init({ xfbml: false, version: "v19.0" }); resolve(); };
+    const s = document.createElement("script");
+    s.src = "https://connect.facebook.net/fr_FR/sdk.js"; s.async = true; s.onerror = reject;
+    document.head.appendChild(s);
+  });
+  return fbReady;
+}
+// shrink the Facebook iframe so a tall (portrait) video shows whole inside a fixed-size box
+function fitFB(el) {
+  const v = el.querySelector(".fb-video");
+  if (!v || !el.clientHeight || !v.offsetHeight) return;
+  const s = Math.min(1, el.clientHeight / v.offsetHeight, el.clientWidth / v.offsetWidth);
+  v.style.transform = `translate(-50%, -50%) scale(${s})`;
+  // the live player's black band must hide Facebook's control bar at this scale (bar ≈ 64px tall unscaled)
+  if (el.id === "live-fb") {
+    const shown = v.offsetHeight * s;
+    $("player").style.setProperty("--fbbar", Math.ceil((el.clientHeight - shown) / 2 + 46 * s) + "px");
+  }
+}
+window.addEventListener("resize", () => { const b = document.getElementById("live-fb"); if (b) fitFB(b); });
+// renders a Facebook embed inside el; resolves with the player instance
+function fbEmbed(el, url) {
+  return loadFB().then(() => new Promise((resolve, reject) => {
+    const id = "fbv" + (++fbSeq);
+    el.innerHTML = `<div class="fb-video" id="${id}" data-href="${esc(url)}" data-width="${Math.round(el.clientWidth) || 500}" data-allowfullscreen="false" data-show-text="false" data-show-captions="false"></div>`;
+    const handler = msg => {
+      if (msg.type !== "video" || msg.id !== id) return;
+      FB.Event.unsubscribe("xfbml.ready", handler);
+      fitFB(el);
+      setTimeout(() => fitFB(el), 1500);
+      resolve(msg.instance);
+    };
+    FB.Event.subscribe("xfbml.ready", handler);
+    // the live stays inside the page: strip Facebook's fullscreen permission from its frame as soon as the frame appears
+    if (el.id === "live-fb") {
+      const strip = () => el.querySelectorAll("iframe[allowfullscreen]").forEach(f => {
+        f.removeAttribute("allowfullscreen");
+        f.setAttribute("allow", "encrypted-media; autoplay");
+      });
+      new MutationObserver(strip).observe(el, { subtree: true, childList: true, attributes: true, attributeFilter: ["allowfullscreen"] });
+    }
+    FB.XFBML.parse(el);
+    setTimeout(() => reject(new Error("timeout")), 20000);
+  }));
+}
+
+// ---------- testimonials ----------
+const igId = src => ((src || "").match(/instagram\.com\/(?:reel|reels|p)\/([A-Za-z0-9_-]+)/) || [])[1];
+$("testi-grid").innerHTML = CONFIG.testimonials.map(t => `
+  <article class="testi">
+    <div class="frame${isFB(t.src) ? " fb" : ""}${igId(t.src) ? " ig" : ""}">
+      ${igId(t.src)
+        ? `<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/${igId(t.src)}/" data-instgrm-version="14"><a href="https://www.instagram.com/reel/${igId(t.src)}/" target="_blank" rel="noopener">شاهد الشهادة على إنستغرام</a></blockquote>`
+        : isFB(t.src)
+        ? `<div class="fb-slot" data-src="${esc(t.src)}"></div>`
+        : `<video controls playsinline preload="metadata" data-src="${esc(t.src)}"></video>`}
+      <div class="empty" hidden><div>${isFB(t.src) ? "تعذّر تحميل الفيديو من فيسبوك. تأكد أنه عام (Public)." : "ضع فيديو الشهادة هنا"}<br><code>${esc(t.src)}</code></div></div>
+    </div>
+    ${t.name ? `<h3>${esc(t.name)}</h3>` : ""}
+    ${t.detail ? `<p>${esc(t.detail)}</p>` : ""}
+  </article>`).join("");
+document.querySelectorAll(".testi video").forEach(v => {
+  const empty = v.nextElementSibling;
+  v.addEventListener("error", () => { v.hidden = true; empty.hidden = false; });
+  if (v.dataset.src) v.src = v.dataset.src; else { v.hidden = true; empty.hidden = false; }
+});
+document.querySelectorAll(".testi .fb-slot").forEach(el => {
+  const empty = el.nextElementSibling;
+  fbEmbed(el, el.dataset.src).catch(() => { el.hidden = true; empty.hidden = false; });
+});
+// Instagram reels: their own embed script turns each blockquote into a player
+if (document.querySelector(".instagram-media")) {
+  const s = document.createElement("script");
+  s.src = "https://www.instagram.com/embed.js"; s.async = true;
+  s.onload = () => { if (window.instgrm) window.instgrm.Embeds.process(); };
+  document.body.appendChild(s);
+}
+
+// ---------- scheduled live ----------
+// a live is either one dated session (start) or a weekly slot (repeat: { days, time }) in Moroccan wall-clock time
+const DAYS = { sunday: 0, monday: 1, tuesday: 2, wednesday: 3, thursday: 4, friday: 5, saturday: 6 };
+const bases = CONFIG.lives.map(l => ({ ...l, durMs: (l.durationMin || 60) * 60000 }));
+const sessions = new Map();   // one object per concrete session, so what a session learns (its real length) sticks
+function session(base, startMs) {
+  const key = base.title + "|" + startMs;
+  if (!sessions.has(key)) sessions.set(key, { ...base, base, key, startMs, durMs: base.durMs });
+  return sessions.get(key);
+}
+// every session from yesterday to a week ahead, oldest first
+function occurrences(t) {
+  const off = CONFIG.utcOffset * 3600e3, out = [];
+  const wall = new Date(t + off);   // its UTC fields read as Moroccan wall-clock time
+  for (const b of bases) {
+    if (!b.repeat) { out.push(session(b, new Date(b.start).getTime())); continue; }
+    const [hh, mm] = b.repeat.time.split(":").map(Number);
+    const days = b.repeat.days.map(d => DAYS[d.toLowerCase()]);
+    for (let d = -1; d <= 7; d++) {
+      const startWall = Date.UTC(wall.getUTCFullYear(), wall.getUTCMonth(), wall.getUTCDate() + d, hh, mm);
+      if (days.includes(new Date(startWall).getUTCDay())) out.push(session(b, startWall - off));
+    }
+  }
+  return out.sort((a, b) => a.startMs - b.startMs);
+}
+const video = $("live-video");
+const fbBox = $("live-fb");
+let current = null, state = null, loadedSrc = null, videoMissing = false;
+let fbPlayer = null, fbPlaying = false, lastResync = 0;
+// locked: a clear layer covers the Facebook player (no skipping); unlocked: the viewer can reach its ▶
+function fbLock(on) {
+  const fb = current && isFB(current.src);
+  $("fb-shield").hidden = !(fb && on);
+  if (fb && !on) $("fb-hint").textContent = "اضغط على ▶ لمشاهدة البث المباشر بالصوت";
+  $("fb-hint").hidden = !(fb && !on);
+  $("fb-band").hidden = !fb;
+}
+
+// one interface over the two players: a video file, or a Facebook embed
+const engine = {
+  fb() { return isFB(current.src); },
+  load() {
+    if (loadedSrc === current.src) return;
+    loadedSrc = current.src; videoMissing = false;
+    $("player").classList.toggle("is-fb", this.fb());
+    if (this.fb()) {
+      video.hidden = true; video.removeAttribute("src"); video.load();
+      fbBox.hidden = false; fbPlayer = null; fbPlaying = false;
+      const forLive = current;
+      fbEmbed(fbBox, current.src).then(p => {
+        if (current !== forLive) return;
+        fbPlayer = p;
+        p.subscribe("startedPlaying", () => {
+          fbPlaying = true;
+          // Facebook often reports the length only once playback starts
+          const len = p.getDuration();
+          if (len > 0) { forLive.durMs = len * 1000; forLive.base.durMs = len * 1000; }
+          if (state === "live") {
+            // the viewer pressed play themself, so the phone allows sound: jump to the live second and lock the player
+            engine.seek(Math.max(0, liveOffset()));
+            p.unmute();
+            $("btn-sound").textContent = "كتم الصوت";
+            fbLock(true);
+          }
+        });
+        // if the phone or the viewer stops the video, give the player back so one tap on ▶ resumes it (at the live second)
+        p.subscribe("paused", () => { fbPlaying = false; if (state === "live") fbLock(false); });
+        p.subscribe("finishedPlaying", () => { fbPlaying = false; if (state === "live") endLive(); });
+        const d = p.getDuration();
+        if (d > 0) current.durMs = d * 1000;
+        if (state === "live") fbLock(false);
+      }).catch(missing);
+    } else {
+      fbBox.hidden = true; fbBox.innerHTML = ""; fbPlayer = null;
+      video.hidden = false;
+      video.src = current.src;
+    }
+  },
+  reset() {
+    video.removeAttribute("src"); video.load();
+    fbBox.innerHTML = ""; fbBox.hidden = true; fbPlayer = null; fbPlaying = false;
+    loadedSrc = null;
+  },
+  seek(t) { if (this.fb()) { if (fbPlayer) fbPlayer.seek(t); } else video.currentTime = t; },
+  play() { if (this.fb()) { if (fbPlayer) fbPlayer.play(); } else video.play().catch(() => {}); },
+  pause() { if (this.fb()) { if (fbPlayer) fbPlayer.pause(); } else video.pause(); },
+  pos() { return this.fb() ? (fbPlayer ? fbPlayer.getCurrentPosition() : null) : video.currentTime; },
+  playing() { return this.fb() ? fbPlaying : !video.paused; },
+  muted() { return this.fb() ? (fbPlayer ? fbPlayer.isMuted() : true) : video.muted; },
+  setMuted(m) { if (this.fb()) { if (fbPlayer) m ? fbPlayer.mute() : fbPlayer.unmute(); } else video.muted = m; }
+};
+function missing() {
+  videoMissing = true;
+  if (state === "before") return;
+  showOverlay(engine.fb()
+    ? `<h3>تعذّر تحميل الفيديو من فيسبوك</h3><p>تأكد أن الفيديو عام (Public) وأن الرابط صحيح:</p><code style="direction:ltr">${esc(current.src)}</code>`
+    : `<h3>لم تتم إضافة الفيديو بعد</h3><p>ضع الملف في هذا المسار:</p><code style="direction:ltr">${esc(current.src)}</code>`);
+}
+
+function stateOf(l, now) {
+  if (now < l.startMs) return "before";
+  if (now < l.startMs + l.durMs) return "live";
+  return "ended";
+}
+// the live now, else the next one, else the last one that ended
+function pick(now) {
+  const all = occurrences(now);
+  return all.find(l => stateOf(l, now) === "live") || all.find(l => stateOf(l, now) === "before") || all[all.length - 1];
+}
+const liveOffset = () => (now() - current.startMs) / 1000;
+
+// the session on show plus what is still to come (past weekly sessions drop off)
+function renderSchedule(now) {
+  const list = occurrences(now).filter(l => l === current || stateOf(l, now) !== "ended").slice(0, 4);
+  $("schedule").innerHTML = list.map(l => {
+    const s = stateOf(l, now);
+    const label = s === "live" ? "مباشر الآن" : s === "before" ? "قادم" : (l.replay ? "تسجيل" : "انتهى");
+    return `<li class="${l === current ? "current" : ""}"><span class="t">${esc(l.title)}</span><span class="d">${fmtDate(new Date(l.startMs))}</span><span class="s ${s === "live" ? "on" : ""}">${label}</span></li>`;
+  }).join("");
+}
+
+function showOverlay(html) { $("overlay-inner").innerHTML = html; $("overlay").hidden = false; }
+
+video.addEventListener("loadedmetadata", () => {
+  // use the real file length as the live duration
+  if (isFinite(video.duration) && video.duration > 0) current.durMs = video.duration * 1000;
+  if (state === "live") { video.currentTime = Math.max(0, liveOffset()); playFile(); }
+});
+video.addEventListener("error", () => { if (video.getAttribute("src")) missing(); });
+// live: no going back, resume always jumps to the live point
+video.addEventListener("play", () => { if (state === "live") video.currentTime = Math.max(0, liveOffset()); });
+video.addEventListener("ended", () => { if (state === "live") endLive(); });
+// our own file: it starts muted by itself; if the phone refuses even that, a tap on the video starts it
+function playFile() {
+  video.play().then(() => { $("fb-hint").hidden = true; }).catch(() => {
+    $("fb-hint").textContent = "اضغط على الفيديو لمشاهدة البث المباشر";
+    $("fb-hint").hidden = false;
+  });
+}
+// a live has no pause: if the phone pauses it (call, lock screen), the next tap resumes at the live second
+video.addEventListener("pause", () => {
+  if (state !== "live" || video.ended) return;
+  $("fb-hint").textContent = "اضغط على الفيديو لمتابعة البث المباشر";
+  $("fb-hint").hidden = false;
+});
+video.addEventListener("playing", () => { $("fb-hint").hidden = true; });
+// tapping the video turns the sound on (and starts it if it was stopped)
+video.addEventListener("click", () => {
+  if (state !== "live") return;
+  video.muted = false;
+  $("btn-sound").textContent = "كتم الصوت";
+  video.currentTime = Math.max(0, liveOffset());
+  playFile();
+});
+video.addEventListener("contextmenu", e => e.preventDefault());
+video.addEventListener("dblclick", e => e.preventDefault());
+// ---------- Firebase (viewer counter) ----------
+const fbDatabase = (() => {
+  let ready = null;
+  const add = src => new Promise((res, rej) => { const s = document.createElement("script"); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+  return () => ready || (ready = add("https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js")
+    .then(() => add("https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"))
+    .then(() => { firebase.initializeApp(CONFIG.firebase); return firebase.database(); }));
+})();
+// one room per live: its start time plus the end of its video link
+const roomId = live => String(live.startMs) + "_" + (live.src || "").replace(/[^a-z0-9]/gi, "").slice(-20);
+
+// ---------- live viewer counter (Firebase Realtime Database presence) ----------
+// each open player during a live adds itself under viewers/<live id>; Firebase removes it when the tab closes
+const viewers = (() => {
+  let db = null, me = null, room = null, roomRef = null, gen = 0, beat = null;
+  const el = $("viewers");
+  const eye = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  return {
+    join(live) {
+      if (!CONFIG.firebase) return;
+      const id = roomId(live);
+      if (room === id) return;
+      this.leave();
+      room = id;
+      const g = gen;
+      fbDatabase().then(d => {
+        db = d;
+        if (g !== gen) return;
+        roomRef = db.ref("viewers/" + id);
+        me = roomRef.push();
+        const mine = me;
+        db.ref(".info/connected").on("value", s => {
+          if (!s.val() || me !== mine) return;
+          mine.onDisconnect().remove();
+          mine.set(firebase.database.ServerValue.TIMESTAMP);
+        });
+        // heartbeat: a viewer whose tab died without saying goodbye drops out after ~2 minutes
+        beat = setInterval(() => { if (me === mine) mine.set(firebase.database.ServerValue.TIMESTAMP); }, 60000);
+        roomRef.on("value", s => {
+          let n = 0;
+          s.forEach(c => { if (typeof c.val() === "number" && c.val() > now() - 150000) n++; });
+          el.innerHTML = `${eye}<span>${Math.max(1, n)}</span><span>يشاهدون الآن</span>`;
+          el.hidden = false;
+        });
+      }).catch(() => {});
+    },
+    leave() {
+      gen++;
+      clearInterval(beat);
+      el.hidden = true;
+      if (roomRef) roomRef.off();
+      if (me) me.remove().catch(() => {});
+      if (db) db.ref(".info/connected").off();
+      me = null; roomRef = null; room = null;
+    }
+  };
+})();
+
+// ---------- reminder: add the next live to the phone's calendar, with an alert 15 minutes before ----------
+const reminder = (() => {
+  const box = $("remind");
+  const stamp = ms => new Date(ms).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const link = () => location.origin + "/live";
+  return {
+    show(live) {
+      const start = stamp(live.startMs), end = stamp(live.startMs + live.durMs);
+      const title = "Business Pro — " + live.title;
+      const details = (live.description ? live.description + "\n\n" : "") + "رابط البث: " + link();
+      $("remind-google").href = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+        + "&text=" + encodeURIComponent(title) + "&dates=" + start + "/" + end
+        + "&details=" + encodeURIComponent(details) + "&location=" + encodeURIComponent(link());
+      const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Business Pro//Live//AR", "BEGIN:VEVENT",
+        "UID:" + start + "@businesspro", "DTSTAMP:" + stamp(Date.now()), "DTSTART:" + start, "DTEND:" + end,
+        "SUMMARY:" + title, "DESCRIPTION:" + details.replace(/\n/g, "\\n"), "URL:" + link(),
+        "BEGIN:VALARM", "TRIGGER:-PT15M", "ACTION:DISPLAY", "DESCRIPTION:" + title, "END:VALARM",
+        "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+      $("remind-ics").href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+      box.hidden = false;
+    },
+    hide() { box.hidden = true; }
+  };
+})();
+
+// the video reached its end: close the live now, even if the planned duration says a few seconds remain
+function endLive() {
+  current.durMs = Math.min(current.durMs, now() - current.startMs);
+  tick(true);
+}
+
+function enterState(s) {
+  state = s;
+  const badge = $("live-badge");
+  $("nav-live").hidden = s !== "live";
+  if (s !== "live") viewers.leave();
+  if (s === "before") reminder.show(current); else reminder.hide();
+  $("player-bar").hidden = true;
+  $("fb-shield").hidden = true;
+  $("fb-hint").hidden = true;
+  $("fb-band").hidden = true;
+  video.controls = false;
+  if (s === "before") {
+    badge.className = "badge"; badge.textContent = "قريبًا";
+    engine.reset();
+    showOverlay(`<h3>يبدأ البث بعد</h3><div class="countdown" id="cd"></div><p>${fmtDate(new Date(current.startMs))}</p>`);
+  } else if (s === "live") {
+    badge.className = "badge on"; badge.textContent = "مباشر";
+    $("overlay").hidden = true;
+    $("player-bar").hidden = false;
+    fbLock(false);
+    viewers.join(current);
+    $("btn-sound").textContent = "تشغيل الصوت";
+    const fresh = loadedSrc !== current.src;
+    engine.load();
+    if (!engine.fb()) video.muted = true;
+    // a video file may start muted on its own; a Facebook video waits for the viewer's tap on ▶ (phones need that for sound)
+    if (!engine.fb() && (!fresh || video.readyState >= 1)) { engine.setMuted(true); engine.seek(Math.max(0, liveOffset())); playFile(); }
+  } else {
+    badge.className = "badge"; badge.textContent = current.replay ? "تسجيل" : "انتهى";
+    engine.pause();
+    if (current.replay) {
+      engine.load(); $("overlay").hidden = true;
+      if (!engine.fb()) { video.controls = true; video.muted = false; }
+    } else {
+      engine.reset();
+      showOverlay(`<h3>انتهى هذا البث</h3><p>تابعنا حتى لا يفوتك البث القادم.</p>`);
+    }
+  }
+}
+
+function updateCountdown() {
+  const cd = document.getElementById("cd");
+  if (!cd) return;
+  let s = Math.max(0, Math.floor((current.startMs - now()) / 1000));
+  const d = Math.floor(s / 86400); s %= 86400;
+  const h = Math.floor(s / 3600); s %= 3600;
+  const m = Math.floor(s / 60); s %= 60;
+  const p = n => String(n).padStart(2, "0");
+  cd.innerHTML = [[d, "يوم"], [h, "ساعة"], [m, "دقيقة"], [s, "ثانية"]].map(([v, l]) => `<div><b>${p(v)}</b><small>${l}</small></div>`).join("");
+}
+
+function tick(force) {
+  if (!bases.length) return;
+  const t = now();
+  const next = pick(t);
+  const s = stateOf(next, t);
+  if (force || next !== current || s !== state) {
+    current = next;
+    $("live-title").textContent = current.title;
+    $("live-desc").textContent = current.description || "";
+    $("live-when").textContent = fmtDate(new Date(current.startMs));
+    enterState(s);
+    renderSchedule(t);
+  }
+  if (state === "before") updateCountdown();
+  if (state === "live" && !videoMissing) {
+    // keep everyone on the same second
+    const p = engine.pos();
+    // no re-sync in the last seconds, so the end of the video is not replayed in a loop
+    const left = current.durMs / 1000 - liveOffset();
+    // gentle: only a real drift, and at most once every 8 seconds, so a slow phone is not knocked back and forth
+    if (left > 5 && engine.playing() && p != null && Math.abs(p - liveOffset()) > 4 && Date.now() - lastResync > 8000) {
+      lastResync = Date.now();
+      engine.seek(liveOffset());
+    }
+  }
+}
+
+$("btn-sound").addEventListener("click", () => {
+  const m = !engine.muted();
+  engine.setMuted(m);
+  if (!m && !engine.playing()) { engine.seek(Math.max(0, liveOffset())); engine.fb() ? engine.play() : playFile(); }
+  $("btn-sound").textContent = m ? "تشغيل الصوت" : "كتم الصوت";
+});
+// tapping the video itself works like the sound button
+$("fb-shield").addEventListener("click", () => $("btn-sound").click());
+document.addEventListener("visibilitychange", () => { if (!document.hidden && state === "live") engine.seek(Math.max(0, liveOffset())); });
+
+tick(true);
+setInterval(tick, 1000);
+// a shared link (/live, ?go=live or #live) lands on the player, and stays there while images settle the layout
+if (location.hash === "#live" || new URLSearchParams(location.search).get("go") === "live") {
+  let userMoved = false;
+  ["wheel", "touchstart", "keydown"].forEach(e => window.addEventListener(e, () => { userMoved = true; }, { once: true, passive: true }));
+  const go = () => { if (!userMoved) $("live").scrollIntoView({ behavior: "instant", block: "start" }); };
+  go();
+  [200, 800, 1500, 3000].forEach(t => setTimeout(go, t));
+  window.addEventListener("load", go);
+  document.querySelectorAll("img").forEach(i => { if (!i.complete) i.addEventListener("load", go); });
+}
+
+// ---------- contact ----------
+$("phone-text").textContent = CONFIG.phone;
+$("ig-page").href = CONFIG.instagramPage;
+$("ig-personal").href = CONFIG.instagramPersonal;
+$("wa-direct").href = waLink("السلام عليكم، أريد معرفة المزيد عن Business Pro.");
+document.querySelectorAll("[data-ig]").forEach(a => a.href = CONFIG[a.dataset.ig]);
+$("mail-text").textContent = CONFIG.email;
+document.querySelectorAll(".copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const el = $(btn.dataset.copy);
+    const done = () => { btn.textContent = "تم النسخ"; setTimeout(() => btn.textContent = "نسخ", 1500); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(el); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); };
+    try { navigator.clipboard.writeText(el.textContent.trim()).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+$("contact-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const link = waLink(`السلام عليكم، أريد معرفة المزيد عن Business Pro.\nالاسم: ${$("c-name").value.trim()}\nالمدينة: ${$("c-city").value.trim()}\nرقم الهاتف: ${$("c-phone").value.trim()}`);
+  // open WhatsApp straight away; keep a link in case the browser blocks the new tab
+  window.open(link, "_blank", "noopener");
+  const out = $("form-msg");
+  out.hidden = false;
+  out.innerHTML = `إذا لم يُفتح واتساب تلقائيًا، <a href="${link}" target="_blank" rel="noopener">اضغط هنا</a>.`;
+});
+</script>
+
+</body>
+</html>
