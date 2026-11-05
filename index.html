@@ -413,6 +413,8 @@ footer.bottom .wrap { padding-block: 20px; display: flex; justify-content: space
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 /* =====================================================================
    الإعدادات — عدّل معلوماتك هنا
@@ -924,6 +926,41 @@ $("contact-form").addEventListener("submit", e => {
   out.hidden = false;
   out.innerHTML = `إذا لم يُفتح واتساب تلقائيًا، <a href="${link}" target="_blank" rel="noopener">اضغط هنا</a>.`;
 });
+
+// ---------- hero: pinned and scroll-scrubbed (GSAP + ScrollTrigger) ----------
+// scrolling zooms the team photo and fades in the three feature lines; visitors who ask for
+// reduced motion keep the static hero. Everything lives in one gsap.context, reverted when the page goes away.
+const heroMotion = (() => {
+  if (!window.gsap || !window.ScrollTrigger) return null;   // CDN blocked: the static hero stays as is
+  gsap.registerPlugin(ScrollTrigger);
+  const hero = document.querySelector(".hero");
+  const header = document.querySelector("header.top");
+  const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+    mm.add({ wide: "(min-width: 900px)", motion: "(prefers-reduced-motion: no-preference)" }, ({ conditions }) => {
+      if (!conditions.motion) return;
+      gsap.timeline({
+        defaults: { ease: "none" },
+        scrollTrigger: {
+          trigger: hero,
+          // wide screens: hold the hero just under the sticky header while the timeline plays;
+          // phones: the hero is taller than the screen, so the timeline simply follows the scroll through it
+          start: () => conditions.wide ? `top ${header.offsetHeight}px` : "top top",
+          end: () => conditions.wide ? "+=110%" : `+=${Math.max(260, Math.round(innerHeight * 0.6))}`,
+          pin: conditions.wide,
+          scrub: 0.6,
+          invalidateOnRefresh: true
+        }
+      })
+        .fromTo(".banner-photo img", { scale: 1 }, { scale: 1.18 })
+        // explicit start and end values, so a re-run of this block can never read the hidden state back as its end
+        .fromTo(".facts li", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, stagger: 0.3, duration: 0.5 }, 0.15);
+    });
+  }, hero);
+  // the page's "unmount": undo every tween, pin and inline style (kept when the page is only cached for back/forward)
+  addEventListener("pagehide", e => { if (!e.persisted) ctx.revert(); });
+  return ctx;
+})();
 </script>
 
 </body>
